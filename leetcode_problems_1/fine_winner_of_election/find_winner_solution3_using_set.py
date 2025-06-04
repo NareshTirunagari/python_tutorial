@@ -9,7 +9,7 @@ def find_winner(votes):
     """
     # Write your code here.
     highest_vote_count = 0
-    winner = ''
+    winnersList = set()
     #count_names_dict = {}
     count_names_dict = defaultdict(int)
 
@@ -23,9 +23,9 @@ def find_winner(votes):
     for name, vote_count in count_names_dict.items():
         if vote_count == highest_vote_count:
             # if there is a tie then pick the lexicographically smallest name
-            winner = name if winner == '' else min(name, winner)
+            winnersList.add(name)
 
-    return winner
+    return min(winnersList)
 
 print(find_winner(votes=["sam", "john", "jamie", "sam"]))
 print(find_winner(votes=["sam", "john", "sam", "john"]))
