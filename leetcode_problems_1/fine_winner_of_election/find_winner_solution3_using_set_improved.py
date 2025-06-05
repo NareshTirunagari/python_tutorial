@@ -25,6 +25,7 @@ def find_winner(votes):
             # if there is a tie then pick the lexicographically smallest name
             winnersList.add(name)
 
+    # return lexicographical smallest name from the list
     return min(winnersList)
 
 print(find_winner(votes=["sam", "john", "jamie", "sam"]))
