@@ -49,3 +49,9 @@ def pair_sum_sorted_array(numbers, target):
 
 print(pair_sum_sorted_array(numbers=[1, 2, 3, 5, 10], target=13))
 print(pair_sum_sorted_array(numbers=[1, 2, 3, 5, 10], target=77))
+
+input_data = {
+    "numbers": [1, 4, 13, 15, 20],
+    "target": 21
+}
+print(pair_sum_sorted_array(input_data["numbers"], input_data["target"]))
