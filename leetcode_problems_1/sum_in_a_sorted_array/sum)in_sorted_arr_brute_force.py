@@ -34,24 +34,18 @@ def pair_sum_sorted_array(numbers, target):
      list_int32
     """
     # Write your code here.
-    numbers_dict = {} #story number as key and its index as value
-    #for each number in the list
-    for index, current in enumerate(numbers):
-        required = target - current # complementary target pair
+    # Iterate over each number in the list
+    n = len(numbers)
+    ##caution: This solution may timeout for very big lists.
+    for i in range(n): #outer loop
+        # For each number of the above outer loop, iterate over the rest of the numbers (exclude outer loop number) in the list
+        for j in range(i+1, n): #inner loop
+            # If the two numbers add up to the target, return their indices
+            if(numbers[i] + numbers[j] == target):
+                return[i, j]            
 
-        if required in numbers_dict: #is pair found??
-            return[index, numbers_dict[required]] #return the pair's indices
-        else:
-            numbers_dict[current] = index #store the current number and its index
-    
     # If no pair sums up to the target, return [-1, -1]
-    return [-1, -1]
+    return[-1, -1]
 
 print(pair_sum_sorted_array(numbers=[1, 2, 3, 5, 10], target=13))
 print(pair_sum_sorted_array(numbers=[1, 2, 3, 5, 10], target=77))
-
-input_data = {
-    "numbers": [1, 4, 13, 15, 20],
-    "target": 21
-}
-print(pair_sum_sorted_array(input_data["numbers"], input_data["target"]))
